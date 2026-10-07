@@ -18,7 +18,20 @@ jobs:
         username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
+          # 1. Cargar paths del sistema para Node, NPM y PM2
+          export PATH=$PATH:/usr/local/bin:/usr/bin:~/.nvm/versions/node/$(ls ~/.nvm/versions/node 2>/dev/null | tail -n 1)/bin
+
+          # 2. Ir a la carpeta del proyecto
           cd /var/www/HubSpotOperSuite
-          git pull origin main
-          # Si Nginx necesita recargarse o tu app requiere algún build, puedes descomentar la línea de abajo:
-          # sudo systemctl reload nginx
+
+          # 3. Forzar sincronizacion limpia con la rama main
+          git fetch origin main
+          git reset --hard origin/main
+
+          # 4. Instalar librerias y compilar frontend + backend
+          npm install --legacy-peer-deps
+          npm run build
+
+          # 5. Reiniciar o levantar el proceso en PM2 en el puerto 3001
+          pm2 reload hubspot-suite || PORT=3001 pm2 start dist/server.cjs --name hubspot-suite -- --port 3001
+          pm2 save
