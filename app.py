@@ -52,26 +52,13 @@ st.sidebar.caption("Rate Limit Preventivo: 100ms / request")
 # Función asíncrona para ejecutar tools del servidor MCP
 async def call_mcp_tool_async(tool_name: str, arguments: Dict[str, Any], token: str) -> Any:
     if not MCP_AVAILABLE or "Simulador" in server_mode:
-        # Modo simulado de respaldo para entorno de desarrollo
-        await asyncio.sleep(0.08)
+        # Si no hay token o servidor MCP activo, retornar vacío para requerir conexión real
+        await asyncio.sleep(0.05)
         if tool_name == "hubspot_get_owners":
-            return [
-                {"id": "owner_101", "firstName": "Carlos", "lastName": "Méndez", "email": "carlos.mendez@empresa.com"},
-                {"id": "owner_102", "firstName": "Valeria", "lastName": "Morales", "email": "valeria.morales@empresa.com"},
-                {"id": "owner_103", "firstName": "Sofía", "lastName": "Castillo", "email": "sofia.castillo@empresa.com"},
-                {"id": "owner_104", "firstName": "Alejandro", "lastName": "Ramos", "email": "alejandro.ramos@empresa.com"},
-                {"id": "owner_105", "firstName": "Mariana", "lastName": "Ortiz", "email": "mariana.ortiz@empresa.com"},
-            ]
+            return []
         elif tool_name == "hubspot_search_contacts":
-            return [
-                {"id": "901", "firstname": "Rodrigo", "lastname": "Salazar", "email": "rsalazar@innovatek.pe", "hs_lead_status": "NEW", "lifecyclestage": "lead", "hubspot_owner_id": "owner_101", "utm_campaign": "meta_q3_retargeting"},
-                {"id": "902", "firstname": "Camila", "lastname": "Fernández", "email": "cfernandez@grupoland.com", "hs_lead_status": "ATTEMPTED_TO_CONTACT", "lifecyclestage": "marketingqualifiedlead", "hubspot_owner_id": "owner_101", "utm_campaign": "google_search_b2b"},
-                {"id": "903", "firstname": "Fernando", "lastname": "Vargas", "email": "fvargas@andinafin.co", "hs_lead_status": "CONNECTED", "lifecyclestage": "salesqualifiedlead", "hubspot_owner_id": "owner_102", "utm_campaign": "linkedin_inbound"},
-                {"id": "904", "firstname": "Gabriela", "lastname": "Paredes", "email": "gparedes@logistix.mx", "hs_lead_status": "OPEN_DEAL", "lifecyclestage": "opportunity", "hubspot_owner_id": "owner_102", "utm_campaign": "webinar_tech_summit"},
-                {"id": "905", "firstname": "Diego", "lastname": "Herrera", "email": "dherrera@apexhealth.org", "hs_lead_status": "NEW", "lifecyclestage": "lead", "hubspot_owner_id": "owner_103", "utm_campaign": "meta_q3_retargeting"},
-            ]
+            return []
         elif tool_name == "hubspot_update_contact":
-            await asyncio.sleep(0.1)  # 100ms preventivo
             return {"status": "success", "contactId": arguments.get("contactId")}
         return []
 

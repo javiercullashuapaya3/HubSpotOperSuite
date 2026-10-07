@@ -513,7 +513,18 @@ export const AgentDailyMonitor: React.FC<AgentDailyMonitorProps> = ({ owners }) 
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
-                {(metrics || []).map((metric, idx) => {
+                {metrics.length === 0 ? (
+                  <tr>
+                    <td colSpan={6} className="py-12 px-4 text-center text-slate-500">
+                      <Users className="w-10 h-10 mx-auto text-slate-300 mb-2.5" />
+                      <p className="font-bold text-slate-700 text-sm">No hay asesores sincronizados</p>
+                      <p className="text-xs text-slate-500 max-w-md mx-auto mt-1">
+                        Para ver tus asesores y sus métricas reales de HubSpot CRM, ingresa tu <strong>Private App Token</strong> en la pestaña <em>Configuración del Sistema</em>.
+                      </p>
+                    </td>
+                  </tr>
+                ) : (
+                  metrics.map((metric, idx) => {
                   const health = HEALTH_BADGES[metric.healthStatus];
                   const Icon = health.icon;
 
@@ -632,8 +643,9 @@ export const AgentDailyMonitor: React.FC<AgentDailyMonitorProps> = ({ owners }) 
                       </td>
                     </tr>
                   );
-                })}
-              </tbody>
+                })
+              )}
+            </tbody>
             </table>
           </div>
         </div>
