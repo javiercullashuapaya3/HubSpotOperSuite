@@ -1052,7 +1052,7 @@ async function startServer() {
   }
 
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`HubOps Suite Server running on port ${PORT}`);
+    console.log(`HubOps Suite de Promptia.lat Server running on port ${PORT}`);
   });
 }
 

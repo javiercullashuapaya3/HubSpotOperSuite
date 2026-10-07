@@ -1703,7 +1703,7 @@ Resumen del reporte:
 
 Saludos cordiales,
 Equipo de Operaciones Comerciales
-HubOps Suite CRM`;
+HubOps Suite de Promptia.lat`;
 
   const htmlBody = `
   <div style="font-family: Arial, sans-serif; color: #1e293b; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
@@ -1725,7 +1725,7 @@ HubOps Suite CRM`;
         </ul>
       </div>
       <p style="font-size: 12px; color: #64748b; margin-top: 24px;">
-        Este reporte fue generado automáticamente por <strong>HubOps Suite</strong>.
+        Este reporte fue generado automáticamente por <strong>HubOps Suite de Promptia.lat</strong>.
       </p>
     </div>
   </div>`;

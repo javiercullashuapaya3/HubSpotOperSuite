@@ -92,7 +92,7 @@ function AppContent() {
               <div>
                 <div className="flex items-center gap-2">
                   <h1 className="text-base font-extrabold text-slate-900 tracking-tight">
-                    HubOps Suite
+                    HubOps Suite de Promptia.lat
                   </h1>
                   <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 tracking-wide uppercase">
                     v2.4
@@ -189,7 +189,7 @@ function AppContent() {
       <footer className="bg-white border-t border-slate-200 py-4 text-xs text-slate-500 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-slate-800">HubOps Suite</span>
+            <span className="font-semibold text-slate-800">HubOps Suite de Promptia.lat</span>
             <span>•</span>
             <span>Sincronizado con HubSpot CRM</span>
             <span>•</span>

@@ -184,13 +184,13 @@ from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
 st.set_page_config(
-    page_title="HubOps Suite - HubSpot CRM",
+    page_title="HubOps Suite de Promptia.lat - HubSpot CRM",
     page_icon="⚡",
     layout="wide"
 )
 
 # 1. AUTENTICACIÓN Y CONEXIÓN CON HUBSPOT CRM
-st.sidebar.title("⚡ HubOps Suite")
+st.sidebar.title("⚡ HubOps Suite de Promptia.lat")
 st.sidebar.caption("Operaciones Comerciales & Gestión Masiva de Leads")
 
 token = st.sidebar.text_input(
